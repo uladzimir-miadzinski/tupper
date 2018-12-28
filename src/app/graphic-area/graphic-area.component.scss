@@ -1,0 +1,18 @@
+.wrapper {
+  display: grid;
+  border-style: solid;
+  border-color: red;
+  grid-template-columns: auto;
+  grid-template-rows: 5rem 1fr 1fr;
+  grid-template-areas:
+    "k-value k-value"
+    "main main"
+    "footer footer";
+  width: 100%;
+  height: 100vh;
+}
+
+.k-value {
+  grid-area: k-value;
+  font-size: 2rem;
+}
