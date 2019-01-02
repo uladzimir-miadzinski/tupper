@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TupperService } from './services/tupper.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tapper';
+  
+  constructor(private tupperService: TupperService) {
+  }
+  
+  getCurrentTupperK() {
+    return this.tupperService.k.getValue();
+  }
+  
 }
