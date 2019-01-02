@@ -68,8 +68,4 @@ export class VirtualScrollComponent implements OnInit {
     }
   }
   
-  getCurrentTapperK() {
-    return this.tapperService.k.getValue();
-  }
-  
 }
