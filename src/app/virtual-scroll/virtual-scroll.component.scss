@@ -4,17 +4,39 @@
 
 .graphic {
   @extend .center;
-  height: 340px;
+  height: 170px;
   width: 100vw;
-  display: flex;
   justify-content: center;
   line-height: 0;
+  overflow-y: hidden;
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(107, 1fr);
 }
 
 %pixel {
-  min-height: 10px;
+  min-height: 13px;
   min-width: 10px;
   display: inline-block;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 1070px) {
+  %pixel {
+    min-height: 8px;
+    min-width: 5px;
+    border-radius: 2px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  %pixel {
+    min-height: 4px;
+    min-width: 4px;
+    border-radius: 2px;
+  }
 }
 
 .clean {
@@ -24,5 +46,5 @@
 
 .dirty {
   @extend %pixel;
-  background-color: #000;
+  background-color: #202020;
 }
