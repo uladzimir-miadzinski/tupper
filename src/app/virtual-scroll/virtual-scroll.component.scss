@@ -1,16 +1,28 @@
-ul.list {
-  list-style: none;
-}
-
-.list li {
-  padding-top: 10px;
-  text-align: center;
-}
-
 .center {
   text-align: center;
 }
 
 .graphic {
-  height: 600px;
+  @extend .center;
+  height: 340px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  line-height: 0;
+}
+
+%pixel {
+  min-height: 10px;
+  min-width: 10px;
+  display: inline-block;
+}
+
+.clean {
+  @extend %pixel;
+  background-color: rgb(251, 251, 251);
+}
+
+.dirty {
+  @extend %pixel;
+  background-color: #000;
 }

@@ -1,11 +1,15 @@
-<ul class="list">
-  <cdk-virtual-scroll-viewport class="graphic" (wheel)="onMouseWheel($event)" itemSize="17" >
-    <ng-container *cdkVirtualFor="let row of rows.getValue()">
-      <li> {{row.y}}
-        <span *ngFor="let col of row.cols">
-          {{ col }}
-        </span>
-      </li>
-    </ng-container>
-  </cdk-virtual-scroll-viewport>
-</ul>
+<cdk-virtual-scroll-viewport class="graphic" (wheel)="onMouseWheel($event)" itemSize="17" >
+  <ng-container *cdkVirtualFor="let row of rows.getValue()">
+    <div title="{{row.y}}">
+      <ng-container *ngFor="let col of row.cols">
+        <div *ngIf="col; then dirty; else clean"></div>
+        <ng-template #dirty>
+          <div class="dirty"></div>
+        </ng-template>
+        <ng-template #clean>
+          <div class="clean"></div>
+        </ng-template>
+      </ng-container >
+    </div>
+  </ng-container>
+</cdk-virtual-scroll-viewport>
