@@ -1,5 +1,5 @@
 <ul class="list">
-  <cdk-virtual-scroll-viewport (wheel)="onMouseWheel($event)" style="height: 100vh" itemSize="17" >
+  <cdk-virtual-scroll-viewport class="graphic" (wheel)="onMouseWheel($event)" itemSize="17" >
     <ng-container *cdkVirtualFor="let row of rows.getValue()">
       <li> {{row.y}}
         <span *ngFor="let col of row.cols">

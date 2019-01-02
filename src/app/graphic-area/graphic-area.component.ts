@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TapperService} from '../services/tapper.service';
+import {TupperService} from '../services/tupper.service';
 
 @Component({
   selector: 'app-graphic-area',
@@ -8,7 +8,7 @@ import {TapperService} from '../services/tapper.service';
 })
 export class GraphicAreaComponent implements OnInit {
 
-  constructor(public tapperService: TapperService) { }
+  constructor(public tapperService: TupperService) { }
 
   ngOnInit() {
   }

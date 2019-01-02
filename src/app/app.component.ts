@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TapperService } from './services/tapper.service';
+import { TupperService } from './services/tupper.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,11 @@ import { TapperService } from './services/tapper.service';
 })
 export class AppComponent {
   
-  constructor(private tapperService: TapperService) {
+  constructor(private tupperService: TupperService) {
   }
   
-  getCurrentTapperK() {
-    return this.tapperService.k.getValue();
+  getCurrentTupperK() {
+    return this.tupperService.k.getValue();
   }
   
 }

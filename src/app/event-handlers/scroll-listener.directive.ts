@@ -1,12 +1,12 @@
 import {Directive, HostListener} from '@angular/core';
-import {TapperService} from "../services/tapper.service";
+import {TupperService} from "../services/tupper.service";
 
 @Directive({
   selector: '[appScrollListener]'
 })
 export class ScrollListenerDirective {
 
-  constructor(private tapperService: TapperService) { }
+  constructor(private tapperService: TupperService) { }
   
   @HostListener('mousewheel', ['$event'])
   onMouseWheel(e) {

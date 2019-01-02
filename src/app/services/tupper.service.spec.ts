@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TapperService } from './tapper.service';
+import { TupperService } from './tupper.service';
 
-describe('TapperService', () => {
+describe('TupperService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TapperService = TestBed.get(TapperService);
+    const service: TupperService = TestBed.get(TupperService);
     expect(service).toBeTruthy();
   });
 });
