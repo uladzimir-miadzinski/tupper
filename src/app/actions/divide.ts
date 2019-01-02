@@ -1,11 +1,10 @@
-import {Stream} from 'stream';
-
 export const divide = (firstValue: string, secondValue: string): string => {
-  //stream examples
-  const readableStream = new Stream.Readable();
-  let isRemoveZero: boolean = false;
-  let count: number = 0;
-  let isFirst: boolean = true;
+  return (Math.floor(parseInt(firstValue, 10) / parseInt(secondValue, 10))).toString();
+  // stream examples
+  const readableStream = [];
+  let isRemoveZero = false;
+  let count = 0;
+  let isFirst = true;
   let lengthOutput = firstValue.length - secondValue.length === 0 ? 2 : (firstValue.length - secondValue.length + 2);
   if (secondValue === '1') {
     return firstValue;
@@ -27,7 +26,9 @@ export const divide = (firstValue: string, secondValue: string): string => {
       secondValue = removeLeadingZero(secondValue);
       isRemoveZero = false;
     }
-    if (lengthOutput !== 0 && firstValue[0] !== '0' && findBiggestValueString(secondValue, firstValue) && firstValue.length > secondValue.length) {
+    if (lengthOutput !== 0 && firstValue[0] !== '0' &&
+      findBiggestValueString(secondValue, firstValue) &&
+      firstValue.length > secondValue.length) {
       if (!isFirst) {
         readableStream.push(count.toString());
         lengthOutput--;
@@ -52,7 +53,7 @@ export const divide = (firstValue: string, secondValue: string): string => {
     
   } while (lengthOutput > 0);
   readableStream.push(null);
-  let stream = readableStream.read().toString();
+  let stream = readableStream.join('');
   if (stream[0] === '0' && stream.length > 1) {
     stream = removeLeadingZero(stream);
   }
@@ -61,45 +62,45 @@ export const divide = (firstValue: string, secondValue: string): string => {
 
 
 const addLeadingZero = (value: string) => {
-  return "0" + value;
+  return '0' + value;
 };
 
 export const subtract = (firstValueMain: string, secondValueMain: string): string => {
-  let subOne: boolean = false;
-  let addTen: boolean = false;
-  const isMinus = findBiggestValueString(secondValueMain,firstValueMain);
-  let firstValue = isMinus? secondValueMain : firstValueMain;
-  let secondValue = isMinus? firstValueMain : secondValueMain;
+  let subOne = false;
+  let addTen = false;
+  const isMinus = findBiggestValueString(secondValueMain, firstValueMain);
+  let firstValue = isMinus ? secondValueMain : firstValueMain;
+  const secondValue = isMinus ? firstValueMain : secondValueMain;
   for (let i = 1; i <= secondValue.length; i++) {
     const secondNumber: number = Number(secondValue[secondValue.length - i]);
     if (addTen) {
       subOne = true;
       addTen = !addTen;
     }
-    if ((subOne ? Number(firstValue[firstValue.length  - i]) - 1 : Number(firstValue[firstValue.length  - i])) < secondNumber) {
+    if ((subOne ? Number(firstValue[firstValue.length - i]) - 1 : Number(firstValue[firstValue.length - i])) < secondNumber) {
       addTen = true;
       
     }
-    firstValue = subFn(firstValue, firstValue.length  - i, subOne ? secondNumber + 1 : secondNumber, addTen);
+    firstValue = subFn(firstValue, firstValue.length - i, subOne ? secondNumber + 1 : secondNumber, addTen);
     subOne = false;
   }
-  while(firstValue[0] === '' && firstValue.length > 1){
+  while (firstValue[0] === '' && firstValue.length > 1) {
     firstValue = removeLeadingZero(firstValue);
   }
-  let i = secondValue.length+1;
-  while(addTen){
-    if(Number(firstValue[firstValue.length  - i]) === 0){
-      firstValue = subFn(firstValue, firstValue.length  - i, 1, addTen);
+  let i = secondValue.length + 1;
+  while (addTen) {
+    if (Number(firstValue[firstValue.length - i]) === 0) {
+      firstValue = subFn(firstValue, firstValue.length - i, 1, addTen);
       i++;
       continue;
     }
-    firstValue = subFn(firstValue,firstValue.length-i,1,false);
+    firstValue = subFn(firstValue, firstValue.length - i, 1, false);
     addTen = false;
   }
-  while(firstValue[0] === '0' && firstValue.length > 1){
+  while (firstValue[0] === '0' && firstValue.length > 1) {
     firstValue = removeLeadingZero(firstValue);
   }
-  return isMinus ? '-'+firstValue: firstValue;
+  return isMinus ? '-' + firstValue : firstValue;
 };
 
 const subFn = (value: string, index: number, subValue: number, flag: boolean): string =>

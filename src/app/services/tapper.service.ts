@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {addByModule} from "../actions/add";
-import {subtractByModule} from "../actions/subtract";
+import { BehaviorSubject } from 'rxjs';
+import { addByModule } from '../actions/add';
+import { subtractByModule } from '../actions/subtract';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,15 @@ export class TapperService {
   
   public k: BehaviorSubject<string> = new BehaviorSubject('0');
   
-  constructor() { }
+  constructor() {
+  }
   
   public incrementedK(): string {
-    return addByModule(this.k.value, '1');
+    return addByModule(this.k.value, '17');
   }
   
   public decrementedK(): string {
-    return subtractByModule(this.k.value, '1');
+    return subtractByModule(this.k.value, '17');
   }
   
   public incrementK(): void {

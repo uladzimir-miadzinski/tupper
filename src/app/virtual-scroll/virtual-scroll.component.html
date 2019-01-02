@@ -1,0 +1,12 @@
+<p class="title center">Current Tapper's K value is: {{getCurrentTapperK()}}</p>
+<ul class="list">
+  <cdk-virtual-scroll-viewport (wheel)="onMouseWheel($event)" style="height: 100vh" itemSize="17" >
+    <ng-container *cdkVirtualFor="let row of rows.getValue()">
+      <li> {{row.y}}
+        <span *ngFor="let col of row.cols">
+          {{ col }}
+        </span>
+      </li>
+    </ng-container>
+  </cdk-virtual-scroll-viewport>
+</ul>
