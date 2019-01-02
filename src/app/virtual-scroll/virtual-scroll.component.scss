@@ -1,16 +1,50 @@
-ul.list {
-  list-style: none;
-}
-
-.list li {
-  padding-top: 10px;
-  text-align: center;
-}
-
 .center {
   text-align: center;
 }
 
 .graphic {
-  height: 600px;
+  @extend .center;
+  height: 170px;
+  width: 100vw;
+  justify-content: center;
+  line-height: 0;
+  overflow-y: hidden;
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(107, 1fr);
+}
+
+%pixel {
+  min-height: 13px;
+  min-width: 10px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 1070px) {
+  %pixel {
+    min-height: 8px;
+    min-width: 5px;
+    border-radius: 2px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  %pixel {
+    min-height: 4px;
+    min-width: 4px;
+    border-radius: 2px;
+  }
+}
+
+.clean {
+  @extend %pixel;
+  background-color: rgb(251, 251, 251);
+}
+
+.dirty {
+  @extend %pixel;
+  background-color: #202020;
 }

@@ -22,9 +22,9 @@ export class TupperService {
     const nextGraphic = [];
     
     for (let y = bottom; subtractByModule(top, y) !== '0'; y = addByModule(y, '1')) {
-      const cols = [];
+      const cols: boolean[] = [];
       for (let x = 0; x <= 106; x++) {
-        cols.push(halfCompareTapper(x.toString(), y) ? 'X' : '_');
+        cols.push(halfCompareTapper(x.toString(), y));
       }
       tmpGraphic.push({
         y,
